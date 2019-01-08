@@ -8,6 +8,8 @@ const config = require('./config/config');
 // imports pouters
 const authRoutes = require('./pouters/auth');
 const languageRoutes = require('./pouters/language');
+const navigationRoutes = require('./pouters/navigation');
+const socialRoutes = require('./pouters/social');
 
 const app = express();
 
@@ -23,7 +25,10 @@ mongoose.connect(config.MONGO_URI, {useNewUrlParser: true})
 
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
+
 app.use('/api/auth', authRoutes);
 app.use('/api/language', languageRoutes);
+app.use('/api/navigation', navigationRoutes);
+app.use('/api/social', socialRoutes);
 
 module.exports = app;

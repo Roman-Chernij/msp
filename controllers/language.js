@@ -49,10 +49,10 @@ module.exports.updateLanguage = async (req, res) => {
         { _id: req.params.id }, 
         {$set: req.body},
         {new: true}
-      )
+      );
       res.status(200).json(language)
     } catch (error) { 
-      errorHandler(res, err);
+      errorHandler(res, error);
     }
    }
 };
