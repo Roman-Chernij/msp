@@ -1,0 +1,6 @@
+@import '~scss/variables';
+
+.main {
+  position: relative;
+  padding-left: #{$sidebar-width}px;
+}

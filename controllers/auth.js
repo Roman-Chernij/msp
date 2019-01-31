@@ -33,3 +33,10 @@ module.exports.login = async function(req, res) {
     })
   }
 };
+
+module.exports.loginOptions = async function(req, res) {
+  console.log('loginOptions');
+  res.status(201).json({
+
+  });
+}

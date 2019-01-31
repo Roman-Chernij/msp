@@ -1,0 +1,8 @@
+@import '~scss/variables';
+
+.sidebar {
+  width: #{$sidebar-width}px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

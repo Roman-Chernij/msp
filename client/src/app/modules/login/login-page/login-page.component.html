@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="login-container">
+    <h2 class="login-title">Авторизация</h2>
+
+    <form class="form" (ngSubmit)="submit()" [formGroup]="loginForm">
+      <div class="form-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Логин</mat-label>
+          <input matInput formControlName="email" type="text" placeholder="Логин">
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Пароль</mat-label>
+          <input matInput formControlName="password" type="password" placeholder="Пароль">
+        </mat-form-field>
+      </div>
+      <div class="form-btn form-btn-center">
+        <button mat-flat-button [disabled]="loginForm.invalid" color="accent">Accent</button>
+      </div>
+    </form>
+  </div>
+</div>
