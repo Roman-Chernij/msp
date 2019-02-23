@@ -1,0 +1,48 @@
+@import '~scss/variables';
+
+.sidebar {
+  width: #{$sidebar-admin-width}px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0 0 1rem 0 $gray-300;
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-btn {
+    text-align: left;
+    padding: .5rem 1rem .5rem 3.5rem;
+    font-family: $secondary-font-family;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: $black;
+    border-radius: 1rem;
+    transition: ease-in-out background-color $transitionTime;
+
+    &.active {
+      background-color: $gray-300;
+
+      .material-icons {
+        color: $gray-500;
+      }
+    }
+
+    .material-icons {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      color: $gray-400;
+      transition: ease-in-out color $transitionTime;
+    }
+  }
+}

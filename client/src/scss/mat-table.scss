@@ -1,0 +1,41 @@
+.mat-table {
+  width: 100%;
+
+  .mat-cell,
+  .mat-header-cell{
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .mat-cell {
+    font-size: 1.4rem;
+  }
+
+  .mat-header-cell {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  .action {
+    width: 90px;
+  }
+
+  .icon {
+
+    &-save {
+      color: $success2-color;
+    }
+
+    &-edit {
+      color: $primary-color;
+    }
+
+    &-add {
+      color: $success-color;
+    }
+
+    &-remove {
+      color: $warning-color;
+    }
+  }
+}

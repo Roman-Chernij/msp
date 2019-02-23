@@ -1,0 +1,11 @@
+@import '~scss/variables';
+
+.admin {
+  padding-left: #{$sidebar-admin-width}px;
+  height: 100vh;
+
+  &-holder {
+    padding: 2rem;
+  }
+
+}

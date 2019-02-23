@@ -1,0 +1,26 @@
+@import './variables';
+
+.form {
+
+  &-field {
+
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+
+  &-btn {
+    display: flex;
+    align-items: center;
+
+    &-center {
+      justify-content: center;
+    }
+  }
+
+  .mat-flat-button {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+  }
+}

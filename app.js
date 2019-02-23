@@ -17,7 +17,13 @@ app.use(require('morgan')('dev'));
 app.use('/uploads', express.static('uploads'));
 app.use(urlencoded({extended: true}));
 app.use(json());
-app.use(require('cors')());
+app.use(require('cors')( {
+  origin: true,
+  methods: ['GET', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+  credentials: false,
+  maxAge: 3600,
+  optionsSuccessStatus: 200
+}));
 
 mongoose.connect(config.MONGO_URI, {useNewUrlParser: true})
     .then(() => console.log('mongoDB started ...'))
@@ -27,6 +33,7 @@ app.use(passport.initialize());
 require('./middleware/passport')(passport);
 
 app.use('/api/auth', authRoutes);
+
 app.use('/api/language', languageRoutes);
 app.use('/api/navigation', navigationRoutes);
 app.use('/api/social', socialRoutes);
