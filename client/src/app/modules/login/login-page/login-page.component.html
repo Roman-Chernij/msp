@@ -1,7 +1,6 @@
-<div class="login">
+<div class="login" [ngClass]="{ 'loader-filter-blur' : isAnswer }">
   <div class="login-container">
     <h2 class="login-title">Авторизация</h2>
-
     <form class="form" (ngSubmit)="submit()" [formGroup]="loginForm">
       <div class="form-field">
         <mat-form-field appearance="outline">
@@ -16,7 +15,7 @@
         </mat-form-field>
       </div>
       <div class="form-btn form-btn-center">
-        <button mat-flat-button [disabled]="loginForm.invalid" color="accent">Accent</button>
+        <button mat-flat-button [disabled]="loginForm.invalid" color="accent">Войти</button>
       </div>
     </form>
   </div>

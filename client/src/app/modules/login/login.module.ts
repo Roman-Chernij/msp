@@ -6,9 +6,8 @@ import { LoginPageComponent } from '@app/modules/login/login-page/login-page.com
 import { LoginRoutingModule } from '@app/modules/login/login-router.module';
 import { LoginViewComponent } from '@app/modules/login/login-view.component';
 import { SharedModule } from '@app/shared/shared.module';
-import { AuthService } from '@app/modules/login/services/auth.service';
-
-
+import { AuthService } from '@app/shared/services/auth.service';
+import { ApiService } from '@app/shared/services/api.service';
 
 @NgModule({
   declarations: [
@@ -20,8 +19,8 @@ import { AuthService } from '@app/modules/login/services/auth.service';
     LoginRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
-  providers: [AuthService]
+  providers: [AuthService, ApiService]
 })
 export class LoginModule { }

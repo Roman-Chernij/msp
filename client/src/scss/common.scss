@@ -1,0 +1,17 @@
+.loader-filter-blur {
+  filter: blur(2px);
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  msp-user-page,
+  msp-admin-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+}
+

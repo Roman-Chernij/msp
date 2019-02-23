@@ -1,7 +1,23 @@
-<header class="header"></header>
+<header class="header">
+  <mat-toolbar class="example-header">
+    <button mat-button class="icon-menu btn-menu" (click)="sidenav.toggle()"></button>
+  </mat-toolbar>
+</header>
 <main class="main">
-  <msp-sidebar></msp-sidebar>
-  <router-outlet></router-outlet>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
+                 [fixedInViewport]="options.value.fixed"
+                 [fixedTopGap]="options.value.top"
+                 [fixedBottomGap]="options.value.bottom">
+      <msp-sidebar></msp-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content class="main-holder">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </main>
+<footer>
+  <mat-toolbar>Footer</mat-toolbar>
+</footer>
 
 

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'msp-user-page',
@@ -6,4 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-page.component.scss']
 })
 
-export class UserPageComponent {}
+export class UserPageComponent implements OnInit {
+  options: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+
+  }
+
+  ngOnInit(): void {
+    this.options = this.formBuilder.group({
+      bottom: 0,
+      fixed: false,
+      top: 0
+    });
+  }
+
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+}

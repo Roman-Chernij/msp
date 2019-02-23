@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '@app/modules/login/services/auth.service';
+import { Router } from '@angular/router';
+
+import { AuthService } from '@app/shared/services/auth.service';
+import { DialogService } from '@app/modules/dialog/services/dialog.service';
+import { SpinnerComponent } from '@app/shared/components/spinner/spinner.component';
 
 @Component({
   selector: 'msp-login-page',
@@ -10,10 +14,15 @@ import { AuthService } from '@app/modules/login/services/auth.service';
 export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup;
+  isAnswer: boolean;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    public dialog: DialogService) { }
 
   ngOnInit() {
+    this.isAnswer = false;
     this.initLoginForm();
   }
   initLoginForm() {
@@ -24,7 +33,15 @@ export class LoginPageComponent implements OnInit {
   }
 
   submit() {
-    this.authService.login(this.loginForm.value).subscribe(res => console.log('test'))
+    this.dialog.open(SpinnerComponent);
+    this.authService.login(this.loginForm.value).subscribe(
+      res => {
+        this.authService.auth(res.token);
+        this.dialog.close();
+        this.router.navigate(['/admin']);
+      },
+      err => {
+        this.dialog.close();
+      });
   }
-
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from '@app/modules/dialog/services/dialog.service';
+import { SpinnerComponent } from '@app/shared/components/spinner/spinner.component';
 
 @Component({
   selector: 'msp-about-page',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: DialogService) { }
 
   ngOnInit() {
+    // this.dialog.open(SpinnerComponent);
+    // setTimeout(() => this.dialog.close(), 3000)
   }
 
 }

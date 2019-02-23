@@ -1,0 +1,15 @@
+<nav class="sidebar">
+  <button *ngFor="let item of adminSharedService.adminNavigation"
+          class="sidebar-btn"
+          [routerLinkActiveOptions]="{exact: true}"
+          routerLinkActive="active"
+          mat-button routerLink="{{ '/admin/' + item.url }}"
+          (click)="addTitle(item.title)">
+    <mat-icon>{{ item.icon }}</mat-icon>
+    {{ item.title }}
+  </button>
+  <button class="sidebar-btn" routerLinkActive="active" mat-button (click)="logOut()">
+    <mat-icon>input</mat-icon>
+    Выйти
+  </button>
+</nav>

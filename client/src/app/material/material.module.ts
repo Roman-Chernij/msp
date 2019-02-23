@@ -6,7 +6,12 @@ import {
   MatMenuModule,
   MatInputModule,
   MatFormFieldModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTableModule,
+  MatTooltipModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatIconModule
 } from '@angular/material';
 
 @NgModule({
@@ -17,14 +22,24 @@ import {
     MatMenuModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [
     MatButtonModule,
     MatMenuModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule
   ]
 })
 export class MaterialModule { }

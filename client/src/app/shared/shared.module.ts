@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { SocialNetworkComponent } from './social-network/social-network.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { RouterModule } from '@angular/router';
+import { SocialNetworkComponent } from './components/social-network/social-network.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from '@app/material/material.module';
+import { LocalSpinnerComponent } from './components/local-spinner/local-spinner.component';
+import { LanguagesComponent } from './components/languages/languages.component';
 
 @NgModule({
   declarations: [
     SocialNetworkComponent,
-    SidebarComponent
+    SidebarComponent,
+    LocalSpinnerComponent,
+    LanguagesComponent
   ],
   imports: [
     MaterialModule,
@@ -21,7 +25,8 @@ import { MaterialModule } from '@app/material/material.module';
   exports: [
     MaterialModule,
     SidebarComponent,
-    SocialNetworkComponent
+    SocialNetworkComponent,
+    LocalSpinnerComponent
   ],
   providers: []
 })

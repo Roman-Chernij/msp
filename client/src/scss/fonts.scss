@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('./assets/fonts/fontello/fontello.eot?10427094');
+  src: url('./assets/fonts/fontello/fontello.eot?10427094#iefix') format('embedded-opentype'),
+  url('./assets/fonts/fontello/fontello.woff2?10427094') format('woff2'),
+  url('./assets/fonts/fontello/fontello.woff?10427094') format('woff'),
+  url('./assets/fonts/fontello/fontello.svg?10427094#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url('./assets/fonts/material-icons/MaterialIcons-Regular.woff2') format('woff2'),
+  url('./assets/fonts/material-icons/MaterialIcons-Regular.woff') format('woff'),
+  url('./assets/fonts/material-icons/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700');
