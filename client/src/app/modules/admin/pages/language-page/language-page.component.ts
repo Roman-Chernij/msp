@@ -23,9 +23,16 @@ export class LanguagePageComponent implements OnInit {
     this.isLoaded = false;
     this.languageService.getLanguage().subscribe(res => {
       this.language = res;
-      this.language.map(item => item['editable'] = false);
+      this.language.map(item => {
+          return {
+          ...item,
+            editable: false,
+            new: false,
+          };
+      });
       this.language.push({
-        editing: false,
+        editing: true,
+        new: true,
         icon: '',
         langKey: '',
         title: ''
@@ -35,7 +42,6 @@ export class LanguagePageComponent implements OnInit {
   }
 
   add(element): void {
-    console.log(element)
     this.languageService.saveLanguage(element).subscribe(res => this.fetchData());
   }
 

@@ -8,13 +8,15 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from '@app/material/material.module';
 import { LocalSpinnerComponent } from './components/local-spinner/local-spinner.component';
 import { LanguagesComponent } from './components/languages/languages.component';
+import { SvgComponent } from './components/svg/svg.component';
 
 @NgModule({
   declarations: [
     SocialNetworkComponent,
     SidebarComponent,
     LocalSpinnerComponent,
-    LanguagesComponent
+    LanguagesComponent,
+    SvgComponent
   ],
   imports: [
     MaterialModule,
@@ -26,7 +28,8 @@ import { LanguagesComponent } from './components/languages/languages.component';
     MaterialModule,
     SidebarComponent,
     SocialNetworkComponent,
-    LocalSpinnerComponent
+    LocalSpinnerComponent,
+    SvgComponent
   ],
   providers: []
 })

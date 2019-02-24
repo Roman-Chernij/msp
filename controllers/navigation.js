@@ -2,6 +2,29 @@ const Navigation = require('../models/Nav');
 const Language = require('../models/Language');
 const errorHandler = require('../utils/errorHandler');
 
+const defaultNavigation = [
+  {
+    customTitle: '',
+    originTitle: 'About',
+    icon: ''
+  },
+  {
+    customTitle: '',
+    originTitle: 'Education',
+    icon: ''
+  },
+  {
+    customTitle: '',
+    originTitle: 'Experience',
+    icon: ''
+  },
+  {
+    customTitle: '',
+    originTitle: 'Portfolio',
+    icon: ''
+  }
+];
+
 module.exports.getNavigation = async function(req, res) {
 
   const newLanguage = await Language.findOne({langKey: req.params.id});
@@ -9,7 +32,15 @@ module.exports.getNavigation = async function(req, res) {
   if (newLanguage) {
     try {
       const navigation = await Navigation.findOne({langKey: req.params.id});
-      res.status(200).json(navigation);
+
+      if (navigation) {
+        res.status(200).json(navigation);
+      } else {
+        res.status(200).json({
+          langKey: req.params.id,
+          body: defaultNavigation
+        });
+      }
     } catch(error) {
       errorHandler(res, error)
     }

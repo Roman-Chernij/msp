@@ -7,6 +7,8 @@ import { LanguageInterface } from '@app/shared/interfaces/language.interface';
 @Injectable()
 export class LanguageService {
 
+  defaultLanguage: LanguageInterface;
+
   constructor(private api: ApiService) {}
 
   public getLanguage(): Observable<any> {

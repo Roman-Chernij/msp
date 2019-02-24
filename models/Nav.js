@@ -2,11 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bodyNav = new Schema({
-  title: {
+  customTitle: {
     type: String,
     required: true
   },
   originTitle: {
+    type: String,
+    required: true
+  },
+  icon: {
     type: String,
     required: true
   }

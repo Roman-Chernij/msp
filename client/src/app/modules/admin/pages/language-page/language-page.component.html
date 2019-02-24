@@ -1,6 +1,3 @@
-<header>
-  <h1 class="admin-title">Языки</h1>
-</header>
 <div class="" *ngIf="isLoaded">
   <table mat-table [dataSource]="language" class="mat-elevation-z8">
 
@@ -12,7 +9,7 @@
             <input matInput [(ngModel)]="element.icon">
           </mat-form-field>
         </div>
-        <ng-template #key>{{element.icon}}</ng-template>
+        <ng-template #key><msp-svg [svg]="element.icon"></msp-svg></ng-template>
       </td>
     </ng-container>
 
@@ -40,16 +37,28 @@
       <th mat-header-cell *matHeaderCellDef>Текст</th>
       <td mat-cell class="action" *matCellDef="let element">
         <div class="button-group">
-          <button matTooltip="Редактровать" mat-button (click)="edit(element)" class="button-circle"  *ngIf="!element.editing && element.title.trim()">
+          <button
+            matTooltip="Редактровать"
+            mat-button
+            (click)="edit(element)"
+            class="button-circle"
+            *ngIf="!element.editing && element.title.trim()">
             <i class="icon-edit icon-pencil-1"></i>
           </button>
-          <button matTooltip="Сохранить" mat-button class="button-circle" (click)="save(element)" *ngIf="element.editing">
+          <button
+            matTooltip="Сохранить"
+            mat-button class="button-circle"
+            (click)="save(element)" *ngIf="element.editing && !element.new">
             <i class="icon-save icon-check"></i>
           </button>
-          <button matTooltip="Удалить" mat-button (click)="remove(element._id)" class="button-circle" *ngIf="element.editing">
+          <button matTooltip="Удалить"
+                  mat-button
+                  (click)="remove(element._id)"
+                  class="button-circle"
+                  *ngIf="element.editing && !element.new">
             <i class="icon-remove icon-trash"></i>
           </button>
-          <button matTooltip="Добавить" mat-button *ngIf="!element.title" class="button-circle" (click)="add(element)">
+          <button matTooltip="Добавить" mat-button *ngIf="element.new" class="button-circle" (click)="add(element)">
             <i class="icon-add icon-plus-circled-1"></i>
           </button>
         </div>

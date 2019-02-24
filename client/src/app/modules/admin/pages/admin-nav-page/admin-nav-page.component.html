@@ -1,3 +1,6 @@
-<header>
-  <h1 class="admin-title">Навигация</h1>
-</header>
+<msp-admin-language-check (changeActive$)="changeActive$($event)" ></msp-admin-language-check>
+<mat-progress-spinner
+  *ngIf="isLoadNavigation"
+  class="example-margin"
+  [color]="'warn'"
+  [mode]="'indeterminate'"></mat-progress-spinner>
