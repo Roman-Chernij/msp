@@ -36,25 +36,16 @@ module.exports.createLanguage = async function(req, res) {
 };
 
 module.exports.updateLanguage = async (req, res) => {
-
-  const language = await Language.findOne({langKey: req.body.langKey});
-
-  if (language) {
-    res.status(409).json({
-      message: 'Language with this key is already registered'
-    })
-  } else {
-    try {
-      const language = await Language.findByIdAndUpdate(
-        { _id: req.params.id }, 
+  try {
+    const language = await Language.findByIdAndUpdate(
+        { _id: req.params.id },
         {$set: req.body},
         {new: true}
-      );
-      res.status(200).json(language)
-    } catch (error) { 
-      errorHandler(res, error);
-    }
-   }
+    );
+    res.status(200).json(language)
+  } catch (error) {
+    errorHandler(res, error);
+  }
 };
 
 module.exports.deleteLanguage = async function (req, res) {

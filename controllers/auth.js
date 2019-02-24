@@ -1,18 +1,16 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { v4 } = require('uuid');
 
-const { USER_EMAIL, USER_PASS, JWT_KEY } = require('../config/config');
+const CONFIG = require('../config/config');
 
 module.exports.login = async function(req, res) {
-  if (req.body.email === USER_EMAIL && req.body.password === USER_PASS) {
+  if (req.body.email === CONFIG.USER_EMAIL && req.body.password === CONFIG.USER_PASS) {
 
-    const salt = bcrypt.genSaltSync(10);
-    const password = bcrypt.hashSync(req.body.password, salt) ;
-
+    CONFIG.UUID = v4() ;
     const token = jwt.sign({
-      email: req.body.email,
-      password
-    }, JWT_KEY, {expiresIn: 60 * 60});
+      UUID: CONFIG.UUID
+    }, CONFIG.JWT_KEY, {expiresIn: 60 * 60});
 
     res.status(200).json({
       token: `Bearer ${token}`
