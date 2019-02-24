@@ -36,6 +36,8 @@ export class ApiService {
   }
 
   public patch(query: string, body: any): Observable<any> {
+    if (body.__v) delete body.__v;
+    if (body._id) delete body._id;
     return this.http.patch(`${environment.url}${query}`, body, this.httpOptions)
       .pipe(
         catchError(err => this.handleError(err))
@@ -50,24 +52,9 @@ export class ApiService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      window.console.error('API Service Error:', error.error.message);
-
-    } else {
-      window.console.error(
-        `API Service Error -- CODE: ${error.status}, ` +
-        `BODY: ${JSON.stringify(error.error, null, 3)}`
-      );
-
-      if (error.status === 401) {
-        this.auth.logOut();
-      }
+    if (error.status === 401) {
+      this.auth.logOut();
     }
-
-    const msg = error.error
-      ? error.error.error_description || error.error.message
-      : error.message || error.statusText;
-
-    return throwError(msg);
+    return throwError(error);
   }
 }

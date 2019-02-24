@@ -6,12 +6,12 @@ const {
   deleteLanguage
 } = require('../controllers/language');
 const passport = require('passport');
-const { JWT_KEY } = require('../config/config');
+const CONFIG = require('../config/config');
 const router = express.Router();
 
 router.get('/', getLanguage);
-router.post('/', passport.authenticate(JWT_KEY, false), createLanguage);
-router.patch('/:id', passport.authenticate(JWT_KEY, false), updateLanguage);
-router.delete('/:id', deleteLanguage);
+router.post('/', passport.authenticate(CONFIG.JWT_KEY, {session: false}), createLanguage);
+router.patch('/:id', passport.authenticate(CONFIG.JWT_KEY, {session: false}), updateLanguage);
+router.delete('/:id', passport.authenticate(CONFIG.JWT_KEY, {session: false}), deleteLanguage);
 
 module.exports = router;
