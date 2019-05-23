@@ -19,6 +19,8 @@ import { AdminPortfolioPageComponent } from './pages/admin-portfolio-page/admin-
 import { AdminSharedService } from '@app/modules/admin/service/admin-shared.service';
 import { AdminLanguageCheckComponent } from './components/admin-language-check/admin-language-check.component';
 import { NavService } from '@app/modules/admin/service/nav.service';
+import { AdminNavCreateComponent } from './pages/admin-nav-page/admin-nav-create/admin-nav-create.component';
+import { LanguageCreateComponent } from './pages/language-page/language-create/language-create.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { NavService } from '@app/modules/admin/service/nav.service';
     AdminExperiencePageComponent,
     AdminAboutPageComponent,
     AdminPortfolioPageComponent,
-    AdminLanguageCheckComponent
+    AdminLanguageCheckComponent,
+    AdminNavCreateComponent,
+    LanguageCreateComponent
   ],
   imports: [
     CommonModule,

@@ -10,6 +10,8 @@ import { AdminEducationPageComponent } from '@app/modules/admin/pages/admin-educ
 import { AdminExperiencePageComponent } from '@app/modules/admin/pages/admin-experience-page/admin-experience-page.component';
 import { AdminAboutPageComponent } from '@app/modules/admin/pages/admin-about-page/admin-about-page.component';
 import { AdminPortfolioPageComponent } from '@app/modules/admin/pages/admin-portfolio-page/admin-portfolio-page.component';
+import { AdminNavCreateComponent } from '@app/modules/admin/pages/admin-nav-page/admin-nav-create/admin-nav-create.component';
+import { LanguageCreateComponent } from '@app/modules/admin/pages/language-page/language-create/language-create.component';
 
 
 
@@ -24,8 +26,24 @@ const adminRouters: Routes = [
         component: LanguagePageComponent
       },
       {
+        path: 'language/create',
+        component: LanguageCreateComponent
+      },
+      {
+        path: 'language/edit/:id',
+        component: LanguageCreateComponent
+      },
+      {
         path: 'navigation',
         component: AdminNavPageComponent
+      },
+      {
+        path: 'navigation/language/:langID/create',
+        component: AdminNavCreateComponent
+      },
+      {
+        path: 'navigation/language/:langID/detail/:id',
+        component: AdminNavCreateComponent
       },
       {
         path: 'social',

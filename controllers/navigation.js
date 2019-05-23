@@ -27,7 +27,7 @@ const defaultNavigation = [
 
 module.exports.getNavigation = async function(req, res) {
 
-  const newLanguage = await Language.findOne({langKey: req.params.id});
+  const newLanguage = await Language.findOne({_id: req.params.id});
 
   if (newLanguage) {
     try {
@@ -37,8 +37,7 @@ module.exports.getNavigation = async function(req, res) {
         res.status(200).json(navigation);
       } else {
         res.status(200).json({
-          langKey: req.params.id,
-          body: defaultNavigation
+          body: []
         });
       }
     } catch(error) {

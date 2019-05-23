@@ -1,7 +1,7 @@
 <div class="language-holder">
   <div class="language-item" *ngFor="let language of languages">
     <button class="language-btn"
-            [color]="languagesActive.langKey === language.langKey ? 'primary' : ''"
+            [color]="(languagesActive && languagesActive.langKey === language.langKey) ? 'primary' : ''"
             mat-raised-button (click)="changeActive(language)">{{ language.title }}</button>
   </div>
 </div>

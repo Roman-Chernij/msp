@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { LanguageService } from '@app/modules/admin/service/language.service';
 import { LanguageInterface } from '@app/shared/interfaces/language.interface';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'msp-admin-language-check',
@@ -20,15 +21,21 @@ export class AdminLanguageCheckComponent implements OnInit {
   ngOnInit() {
     this.languageService.getLanguage().subscribe(languages => {
       const active = languages.find(language => language.langKey.toLowerCase() === 'en');
-      this.languageService.defaultLanguage = active;
-      this.languagesActive = active;
       this.languages = languages;
-      this.changeActive$.emit(active);
+      if (active) {
+        this.languageService.defaultLanguage = active;
+        this.languagesActive = active;
+        this.changeActive$.emit(active);
+      } else {
+        this.changeActive$.emit(null);
+      }
     });
   }
 
   public changeActive(language) {
-    this.languagesActive = language;
-    this.changeActive$.emit(language);
+    if (!this.languagesActive || (this.languagesActive._id !== language._id)) {
+      this.languagesActive = language;
+      this.changeActive$.emit(language);
+    }
   }
 }

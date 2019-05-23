@@ -1,0 +1,17 @@
+@import "./variables";
+
+.mat-snack-bar-container.mat-snack-bar {
+
+  &-error {
+    color: $danger-color;
+    background-color: $white;
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 2px solid $danger-color;
+    box-shadow: 0 3px 5px -1px rgba(211, 47, 47, 1),
+                0 6px 10px 0 rgba(211, 47, 47, 1),
+                0 1px 18px 0 rgba(211, 47, 47, 1);
+  }
+
+  &-success {}
+}

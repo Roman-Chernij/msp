@@ -1,3 +1,86 @@
+@import '~scss/variables';
+
+:host {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+}
+
+.language {
+
+  &-container {
+    max-width: 700px;
+    width: 100%;
+  }
+
+  &-list {
+
+    &__item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem;
+      border-radius: 1rem;
+      background-color: $gray-300;
+
+      &:not(:last-child) {
+        margin-bottom: .4rem;
+      }
+    }
+
+    &-actions {
+
+      .mat-button {
+        padding: 0;
+        min-width: 1rem;
+      }
+
+      .mat-icon {
+        font-size: 2rem;
+        height: auto;
+        width: auto;
+      }
+    }
+
+    &-active {
+      position: absolute;
+      top: -10px;
+      left: -16px;
+      border-radius: 50%;
+      width: auto;
+      height: auto;
+      color: $primary-color;
+      font-size: 2rem;
+      cursor: default;
+    }
+  }
+
+  &-add {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+
+    &__btn {
+
+      &::ng-deep {
+
+        .mat-button-wrapper {
+          padding: 0;
+        }
+      }
+
+      .material-icons {
+        font-size: 2.2rem;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}
+
+
+
 .button {
 
   &-group {

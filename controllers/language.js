@@ -1,11 +1,33 @@
+const languageType = require('../models/config').language;
 const Language = require('../models/Language');
 const errorHandler = require('../utils/errorHandler');
+
+
+console.log('Language >> ', languageType);
+
 
 module.exports.getLanguage = async function(req, res) {
 
   try {
     const language = await Language.find({});
     res.status(200).json(language)
+  } catch(error) {
+    errorHandler(res, error)
+  }
+};
+
+module.exports.getLanguageByID = async function(req, res) {
+
+  try {
+    const languageOne = await Language.findOne({_id: req.params.id});
+    if (languageOne) {
+      res.status(200).json(languageOne)
+    } else {
+      res.status(404).json({
+        code: 404,
+        message: `The language with this ID ${req.params.id} not found!`
+      })
+    }
   } catch(error) {
     errorHandler(res, error)
   }
@@ -23,7 +45,9 @@ module.exports.createLanguage = async function(req, res) {
     const language = new Language({
       icon: req.body.icon,
       title: req.body.title,
-      langKey: req.body.langKey
+      langKey: req.body.langKey,
+      active: req.body.active,
+      show: req.body.show
     });
 
     try {

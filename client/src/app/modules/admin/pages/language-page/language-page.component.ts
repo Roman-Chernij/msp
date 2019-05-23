@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageInterface } from '../../../../shared/interfaces/language.interface';
-import { LanguageService } from '../../service/language.service';
+import { LanguageInterface } from '@app/shared/interfaces/language.interface';
+import { LanguageService } from '@app/modules/admin/service/language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'msp-language-page',
@@ -9,11 +10,12 @@ import { LanguageService } from '../../service/language.service';
 })
 export class LanguagePageComponent implements OnInit {
 
-  displayedColumns: string[] = ['icon', 'langKey', 'title', 'actions'];
   language: LanguageInterface[];
   isLoaded: boolean;
 
-  constructor(private languageService: LanguageService) { }
+  constructor(
+    private languageService: LanguageService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.fetchData();
@@ -23,44 +25,23 @@ export class LanguagePageComponent implements OnInit {
     this.isLoaded = false;
     this.languageService.getLanguage().subscribe(res => {
       this.language = res;
-      this.language.map(item => {
-          return {
-          ...item,
-            editable: false,
-            new: false,
-          };
-      });
-      this.language.push({
-        editing: true,
-        new: true,
-        icon: '',
-        langKey: '',
-        title: ''
-      });
       this.isLoaded = true;
     });
   }
 
-  add(element): void {
-    this.languageService.saveLanguage(element).subscribe(res => this.fetchData());
-  }
-
-  edit(element): void {
-    this.language.map(item => {
-      if (item._id === element._id) {
-        item.editing = true;
-      } else {
-        item.editing = false;
-      }
-    });
+  edit(id): void {
+    this.router.navigate([`admin/language/edit/${id}`]);
   }
 
   remove(id: string): void {
-    this.languageService.deleteLanguage(id).subscribe(res => this.fetchData());
+    this.languageService.deleteLanguage(id).subscribe(res => {
+      this.language = this.language.filter(item => item._id !== id);
+    });
   }
 
-
-  save(element): void {
-    this.languageService.upDateLanguage(element._id, element).subscribe(res => this.fetchData());
+  activate(id: string, language: LanguageInterface) {
+    delete language._id;
+    delete language.__v;
+    console.log(language);
   }
 }
