@@ -2,21 +2,17 @@ const languageType = require('../models/config').language;
 const Language = require('../models/Language');
 const errorHandler = require('../utils/errorHandler');
 
-
-console.log('Language >> ', languageType);
-
-
-module.exports.getLanguage = async function(req, res) {
+module.exports.getLanguage = async function (req, res) {
 
   try {
     const language = await Language.find({});
     res.status(200).json(language)
-  } catch(error) {
-    errorHandler(res, error)
+  } catch (error) {
+    errorHandler(res, error, 404);
   }
 };
 
-module.exports.getLanguageByID = async function(req, res) {
+module.exports.getLanguageByID = async function (req, res) {
 
   try {
     const languageOne = await Language.findOne({_id: req.params.id});
@@ -28,12 +24,12 @@ module.exports.getLanguageByID = async function(req, res) {
         message: `The language with this ID ${req.params.id} not found!`
       })
     }
-  } catch(error) {
+  } catch (error) {
     errorHandler(res, error)
   }
 };
 
-module.exports.createLanguage = async function(req, res) {
+module.exports.createLanguage = async function (req, res) {
 
   const newLanguage = await Language.findOne({langKey: req.body.langKey});
 
@@ -52,8 +48,8 @@ module.exports.createLanguage = async function(req, res) {
 
     try {
       await language.save();
-          res.status(201).json(language);
-    } catch(err) {
+      res.status(201).json(language);
+    } catch (err) {
       errorHandler(res, err);
     }
   }
@@ -61,12 +57,44 @@ module.exports.createLanguage = async function(req, res) {
 
 module.exports.updateLanguage = async (req, res) => {
   try {
-    const language = await Language.findByIdAndUpdate(
-        { _id: req.params.id },
-        {$set: req.body},
-        {new: true}
-    );
-    res.status(200).json(language)
+    if (req.body.active) {
+      await Language.findOne({active: req.body.active})
+          .then( async language => {
+        if (language) {
+
+          const noActiveLang = {
+            ...language._doc,
+            active: false
+          };
+          await Language.findByIdAndUpdate(
+              {_id: language._id},
+              {$set: noActiveLang},
+              {new: true}
+          ).then(async (leng) => {
+            const language = await Language.findByIdAndUpdate(
+                {_id: req.params.id},
+                {$set: req.body},
+                {new: true}
+            );
+            res.status(200).json(language)
+          });
+        } else {
+          const language = await Language.findByIdAndUpdate(
+              {_id: req.params.id},
+              {$set: req.body},
+              {new: true}
+          );
+          res.status(200).json(language)
+        }
+      })
+    } else {
+      const language = await Language.findByIdAndUpdate(
+          {_id: req.params.id},
+          {$set: req.body},
+          {new: true}
+      );
+      res.status(200).json(language)
+    }
   } catch (error) {
     errorHandler(res, error);
   }
@@ -74,13 +102,13 @@ module.exports.updateLanguage = async (req, res) => {
 
 module.exports.deleteLanguage = async function (req, res) {
   try {
-    await Language.remove({ _id: req.params.id });
+    await Language.remove({_id: req.params.id});
     res.status(201).json({
       success: true,
       status: 'ok',
       id: req.params.id
     });
-  } catch(err) {
+  } catch (err) {
     errorHandler(res, err);
   }
 };

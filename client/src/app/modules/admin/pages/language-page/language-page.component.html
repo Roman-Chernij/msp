@@ -1,5 +1,5 @@
 <div class="language-container">
-  <ul class="language-list">
+  <ul class="language-list" *ngIf="language && language.length">
     <li class="language-list__item" *ngFor="let lang of language">
       <mat-icon *ngIf="lang.active"
                 matTooltip="Установлен как основной"
@@ -26,6 +26,9 @@
   <div class="language-add">
     <button class="language-add__btn"
             mat-fab color="primary"
-            routerLink="language/create"><mat-icon>add</mat-icon></button>
+            routerLink="create"><mat-icon>add</mat-icon></button>
   </div>
 </div>
+
+
+

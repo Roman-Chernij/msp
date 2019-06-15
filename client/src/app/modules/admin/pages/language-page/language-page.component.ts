@@ -21,7 +21,7 @@ export class LanguagePageComponent implements OnInit {
     this.fetchData();
   }
 
-  fetchData() {
+  fetchData(): void {
     this.isLoaded = false;
     this.languageService.getLanguage().subscribe(res => {
       this.language = res;
@@ -40,8 +40,21 @@ export class LanguagePageComponent implements OnInit {
   }
 
   activate(id: string, language: LanguageInterface) {
-    delete language._id;
-    delete language.__v;
-    console.log(language);
+    const lang = {
+      ...language
+    };
+    delete lang._id;
+    delete lang.__v;
+    this.languageService.updateLanguage(id, {...language, active: true})
+      .subscribe(res => this.onlyOneActive(res));
+  }
+
+  onlyOneActive(response: LanguageInterface):void {
+    this.language = this.language.map(lang => (
+      {
+        ...lang,
+        active: lang._id === response._id
+      }
+    ))
   }
 }

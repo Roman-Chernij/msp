@@ -19,7 +19,7 @@ export class LanguageService {
     return this.api.get(`${config.path.LANGUAGE}/${id}`);
   }
 
-  public upDateLanguage(id: string, language: LanguageInterface): Observable<any> {
+  public updateLanguage(id: string, language: LanguageInterface): Observable<any> {
     return this.api.patch(`${config.path.LANGUAGE}/${id}`, language);
   }
   public createLanguage(language: LanguageInterface): Observable<any> {

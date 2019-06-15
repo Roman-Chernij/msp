@@ -4,17 +4,16 @@ $tabletM: 992;
 $tablet:  1023;
 $laptop:  1440;
 
-$widthvalue:'max-width';
+$width-value:'max-width';
 
-$mobileMPoint: (#{$widthvalue} : #{$mobileM}px);
-$mobilePoint:  (#{$widthvalue} : #{$mobile}px);
-$tabletMPoint: (#{$widthvalue} : #{$tabletM}px);
-$tabletPoint:  (#{$widthvalue} : #{$tablet}px);
-$laptopPoint:  (#{$widthvalue} : #{$laptop}px);
+$mobileMPoint: (#{$width-value} : #{$mobileM}px);
+$mobilePoint:  (#{$width-value} : #{$mobile}px);
+$tabletMPoint: (#{$width-value} : #{$tabletM}px);
+$tabletPoint:  (#{$width-value} : #{$tablet}px);
+$laptopPoint:  (#{$width-value} : #{$laptop}px);
 
 $urlFont:'../fonts';
 $urlImage:'../images/';
-
 
 /*
 * font-family
@@ -24,7 +23,7 @@ $primary-font-family: 'Ubuntu Condensed';
 $secondary-font-family: 'Oswald';
 
 $basis-font-size:16;
-$basis-color: #000;
+$basis-color: #1c1c1c;
 $basis-line-height: 1.375;
 $basis-min-width-window: 320;
 $basis-font-family: $primary-font-family, 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
@@ -62,3 +61,17 @@ $spinner-background-color: rgba($gray-300, .7);
 $spinner-color: $primary-color;
 $spinner-border-width: 3px;
 $spinner-size: 64px;
+
+$page-spinner-background: #222;
+$page-spinner-content-background: #222,#111;
+$page-spinner-background-linear-gradient: #1611ff, #494fff, #1611ff;
+$page-spinner-width: 150px;
+$page-spinner-height: 150px;
+$page-spinner-animation-duration: 1s;
+$page-spinner-font-size: 1rem;
+$page-spinner-line-height: 140px;
+$page-spinner-font-style: oblique;
+$page-spinner-font-variant: normal;
+$page-spinner-font-weight: bold;
+$page-spinner-font-family: 'Electrolize', Helvetica, Arial, sans-serif;
+

@@ -13,8 +13,6 @@ import { AdminPortfolioPageComponent } from '@app/modules/admin/pages/admin-port
 import { AdminNavCreateComponent } from '@app/modules/admin/pages/admin-nav-page/admin-nav-create/admin-nav-create.component';
 import { LanguageCreateComponent } from '@app/modules/admin/pages/language-page/language-create/language-create.component';
 
-
-
 const adminRouters: Routes = [
   {
     path: '',
@@ -23,6 +21,10 @@ const adminRouters: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'language'
+      },
+      {
+        path: 'language',
         component: LanguagePageComponent
       },
       {

@@ -8,7 +8,7 @@ export class AdminSharedService {
   public adminNavigation = [
     {
       title: 'Языки',
-      url: '',
+      url: 'language',
       icon: 'language'
     },
     {

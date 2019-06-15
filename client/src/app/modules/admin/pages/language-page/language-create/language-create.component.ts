@@ -53,12 +53,12 @@ export class LanguageCreateComponent implements OnInit {
 
   submit() {
     if (this.languageID) {
-      this.languageService.upDateLanguage(this.languageID, this.languageForm.value).subscribe(res => {
-        this.router.navigate(['/admin']);
+      this.languageService.updateLanguage(this.languageID, this.languageForm.value).subscribe(res => {
+        this.router.navigate(['/admin/language']);
       });
     } else {
       this.languageService.createLanguage(this.languageForm.value).subscribe(res => {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/admin/language']);
       });
     }
   }
