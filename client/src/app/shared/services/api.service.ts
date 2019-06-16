@@ -22,7 +22,7 @@ export class ApiService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private auth: AuthService) {console.log(this);}
+    private auth: AuthService) {}
 
   public get(path): Observable<any> {
     return this.http.get(`${environment.url}${path}`, this.httpOptions);

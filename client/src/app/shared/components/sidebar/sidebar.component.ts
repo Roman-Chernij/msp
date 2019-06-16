@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationItemInterface } from '@app/shared/interfaces/navigation-item.interface';
+import { config } from '@app/misc/config';
 
 @Component({
   selector: 'msp-sidebar',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  navigation = config.nav;
+
+  constructor() {console.log(this) }
 
   ngOnInit() {
   }

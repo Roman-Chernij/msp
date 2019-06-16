@@ -1,0 +1,75 @@
+<div class="return-back">
+  <button class="return-back-btn" mat-button (click)="prev()">
+    <mat-icon>navigate_before</mat-icon>
+    Языки
+  </button>
+</div>
+<form (ngSubmit)="submit()" [formGroup]="languageForm" *ngIf="isLoaded">
+  <div class="layout-grid">
+    <div class="layout-grid-holder">
+      <div class="layout-grid-holder__cell layout-grid-holder__cell--span-6">
+        <mat-form-field class="example-form-field">
+          <input matInput type="text" formControlName="title" placeholder="Название языка">
+          <button mat-button
+                  *ngIf="languageForm.controls['title'].value"
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Clear"
+                  (click)="languageForm.controls['title'].setValue('')">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="layout-grid-holder__cell layout-grid-holder__cell--span-6">
+        <mat-form-field class="example-form-field">
+          <input matInput type="text" formControlName="langKey" placeholder="Код языка">
+          <button mat-button
+                  *ngIf="languageForm.controls['langKey'].value"
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Clear"
+                  (click)="languageForm.controls['langKey'].setValue('')">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="layout-grid-holder__cell layout-grid-holder__cell--span-6">
+        <mat-form-field class="example-form-field">
+          <input matInput type="text" formControlName="icon" placeholder="Иконка языка">
+          <button mat-button
+                  *ngIf="languageForm.controls['icon'].value"
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Clear"
+                  (click)="languageForm.controls['icon'].setValue('')">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="layout-grid-holder__cell layout-grid-holder__cell--span-6">
+        <div class="checkbox-group">
+          <div class="checkbox-group-item">
+            <mat-checkbox class="example-margin"
+                          formControlName="active"
+                          [labelPosition]="'before'">
+              {{ languageForm.controls['active'].value
+              ? 'Этот язык установлен как основной'
+              : 'Этот язык не установлен как основной'}}
+            </mat-checkbox>
+          </div>
+          <div class="checkbox-group-item">
+            <mat-checkbox class="example-margin" formControlName="show" [labelPosition]="'before'">
+              {{  languageForm.controls['show'].value
+              ? 'Пользователь будет видеть этот язык '
+              : 'Этот язык будет скрыт от пользователя' }}
+            </mat-checkbox>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-group">
+    <button [disabled]="languageForm.invalid" mat-raised-button color="primary">{{ languageID ? 'Обновить' : 'Сохранить' }}</button>
+  </div>
+</form>
+

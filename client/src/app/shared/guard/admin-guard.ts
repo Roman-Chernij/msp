@@ -1,6 +1,7 @@
 import {
   ActivatedRouteSnapshot,
-  CanActivate, Router,
+  CanActivate,
+  Router,
   RouterStateSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';

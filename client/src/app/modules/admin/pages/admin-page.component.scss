@@ -3,9 +3,12 @@
 .admin {
   padding-left: #{$sidebar-admin-width}px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   &-holder {
     padding: 2rem;
+    flex: 1 0 auto;
+    display: flex;
   }
-
 }

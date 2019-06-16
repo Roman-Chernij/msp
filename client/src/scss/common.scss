@@ -1,3 +1,5 @@
+@import "./variables";
+
 .loader-filter-blur {
   filter: blur(2px);
 }
@@ -13,5 +15,42 @@
     flex-direction: column;
     height: 100vh;
   }
+
+  .mat-form-field {
+    display: block;
+  }
 }
 
+.return-back {
+
+  &-btn {
+    font-size: 1.5rem;
+    font-family: $secondary-font-family;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    padding: 0 !important;
+
+    .mat-button-wrapper {
+      display: flex;
+      align-items: end;
+    }
+
+    .material-icons {
+      font-size: 2.5rem;
+      width: 35px;
+      height: auto;
+    }
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 -1rem;
+
+  &-item {
+    padding: 0 1rem;
+    width: 50%;
+  }
+}

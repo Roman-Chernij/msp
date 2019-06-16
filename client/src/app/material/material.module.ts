@@ -11,7 +11,10 @@ import {
   MatTooltipModule,
   MatSidenavModule,
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -27,7 +30,10 @@ import {
     MatTooltipModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    MatCheckboxModule
   ],
   exports: [
     MatButtonModule,
@@ -39,7 +45,10 @@ import {
     MatTooltipModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

@@ -10,16 +10,16 @@ const options = {
 
 module.exports = passport => {
   passport.use(
-      new JwtStrategy(options, async (payload, done) => {
-        try {
-          if (payload.UUID === CONFIG.UUID) {
-            done(null, CONFIG.UUID)
-          } else {
-            done(null, false)
-          }
-        } catch (e) {
-          console.log(e)
+    new JwtStrategy(options, async (payload, done) => {
+      try {
+        if (payload.UUID === CONFIG.UUID) {
+          done(null, CONFIG.UUID)
+        } else {
+          done(null, false)
         }
-      })
+      } catch (e) {
+        console.log(e)
+      }
+    })
   )
 };

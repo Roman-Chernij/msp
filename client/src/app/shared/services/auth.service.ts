@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { Observable } from 'rxjs';
 import { config } from '@app/misc/config';
 import { UserInterface } from '@app/shared/interfaces/user.interface';
