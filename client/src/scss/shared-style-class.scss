@@ -1,0 +1,17 @@
+@import './variables';
+
+%display-flex-full {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+%content-container {
+  box-shadow: 0 0 0 $content-container-border-width $content-container-border-color inset;
+  border-radius: 1rem;
+  background-color: $content-container-background-color;
+  transition: ease-in-out background-color $content-container-background-color-transition-time;
+
+  &:hover {
+    background-color: $content-container-background-color-hover;
+  }
+}

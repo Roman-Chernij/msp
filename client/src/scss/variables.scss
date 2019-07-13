@@ -12,15 +12,13 @@ $tabletMPoint: (#{$width-value} : #{$tabletM}px);
 $tabletPoint:  (#{$width-value} : #{$tablet}px);
 $laptopPoint:  (#{$width-value} : #{$laptop}px);
 
-$urlFont:'../fonts';
-$urlImage:'../images/';
-
 /*
 * font-family
 */
 
 $primary-font-family: 'Ubuntu Condensed';
 $secondary-font-family: 'Oswald';
+$front-fonts:'EB Garamond', serif;
 
 $basis-font-size:16;
 $basis-color: #1c1c1c;
@@ -49,9 +47,41 @@ $gray-400: #BDBDBD;
 $gray-500: #343434;
 
 /*
+* font-weight
+*/
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 900;
+
+/*
 * z-index
 */
 $z-index-max: 100;
+
+/*
+* icon-button
+*/
+$icon-button-font-size: 2.5rem;
+$icon-button-width: 4rem;
+$icon-button-height: 4rem;
+
+/*
+* content-container
+*/
+$content-container-border-width: 1px;
+$content-container-border-color: rgba(180, 180, 180, 0.88);
+$content-container-background-color: rgba(217, 226, 212, 0.35);
+$content-container-background-color-hover: darken($content-container-background-color, 20%);
+$content-container-background-color-transition-time: $transitionTime;
+
+/*
+* sidebar
+*/
+$sidebar-font-padding: 1rem 1.5rem;
+$sidebar-font-family: $front-fonts;
+$sidebar-font-size: 2rem;
+$sidebar-font-weight: $font-weight-semi-bold;
 
 /*
 * spinner
@@ -62,6 +92,9 @@ $spinner-color: $primary-color;
 $spinner-border-width: 3px;
 $spinner-size: 64px;
 
+/*
+* page-spinner
+*/
 $page-spinner-background: #222;
 $page-spinner-content-background: #222,#111;
 $page-spinner-background-linear-gradient: #1611ff, #494fff, #1611ff;

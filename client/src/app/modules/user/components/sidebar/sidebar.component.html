@@ -1,0 +1,16 @@
+<nav class="sidebar">
+  <ul class="sidebar-list">
+    <li class="sidebar-list__item"
+        *ngFor="let nav of navigation"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{exact: true}"
+        [ngStyle]="{order: +nav.order}">
+      <button class="sidebar-list__btn" mat-button [routerLink]="nav.url" >
+        <span class="sidebar-list__value">
+          <mat-icon *ngIf="nav.icon.length">{{ nav.icon }}</mat-icon>
+          {{ nav.customTitle.length ? nav.customTitle : nav.originTitle }}
+        </span>
+      </button>
+    </li>
+  </ul>
+</nav>

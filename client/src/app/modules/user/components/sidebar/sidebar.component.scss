@@ -1,0 +1,64 @@
+@import '~scss/variables';
+@import '~scss/shared-style-class.scss';
+
+:host {
+  @extend %display-flex-full;
+}
+.sidebar {
+  @extend %display-flex-full;
+  @extend %content-container;
+  padding: 1rem 0;
+
+  &-list {
+    @extend %display-flex-full;
+    flex-direction: column;
+
+    &__item {
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3px;
+        height: 100%;
+        background-color: transparent;
+        transition: ease-in-out background-color .15s;
+      }
+
+      &.active {
+
+        &::after {
+          background-color: red;
+        }
+      }
+    }
+
+    &__btn {
+      width: 100%;
+      padding: $sidebar-font-padding;
+      font-family: $sidebar-font-family;
+      font-size: $sidebar-font-size;
+      font-weight: $sidebar-font-weight;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__value {
+      position: relative;
+      padding-left: 3rem;
+      min-width: 200px;
+      display: block;
+      text-align: left;
+
+      .mat-icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

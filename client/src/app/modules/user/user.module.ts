@@ -11,6 +11,8 @@ import { UserPageComponent } from '@app/modules/user/user-page.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderLanguagesSelectComponent } from './components/header/header-languages-select/header-languages-select.component';
+import { SocialNetworkComponent } from '@app/modules/user/components/social-network/social-network.component';
+import { SidebarComponent } from '@app/modules/user/components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HeaderLanguagesSelectComponent } from './components/header/header-langu
     PortfolioPageComponent,
     UserPageComponent,
     HeaderComponent,
-    HeaderLanguagesSelectComponent
+    HeaderLanguagesSelectComponent,
+    SocialNetworkComponent,
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
