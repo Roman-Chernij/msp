@@ -4,16 +4,44 @@
   filter: blur(2px);
 }
 
+body {
+  background-image: url('assets/images/speaker_bg.png');
+}
+
 .root {
   display: flex;
   flex-direction: column;
   height: 100vh;
+
+  .mat-toolbar {
+    background: transparent;
+  }
+  .mat-drawer {
+
+    &-side {
+      border: none;
+    }
+
+    &-container {
+      background-color: transparent;
+    }
+
+    &-inner-container {
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+    }
+  }
 
   msp-user-page,
   msp-admin-page {
     display: flex;
     flex-direction: column;
     height: 100vh;
+  }
+
+  msp-user-page {
+    padding: .5rem;
   }
 
   .mat-form-field {
@@ -53,4 +81,16 @@
     padding: 0 1rem;
     width: 50%;
   }
+}
+
+.mat-icon {
+  font-size: $icon-button-font-size;
+}
+
+.icon-button.mat-icon-button {
+  width: $icon-button-width;
+  height: $icon-button-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

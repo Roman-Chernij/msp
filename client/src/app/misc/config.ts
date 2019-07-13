@@ -11,7 +11,7 @@ export const config = {
       customTitle: '',
       originTitle: 'About',
       icon: 'person_pin_circle',
-      order: '4',
+      order: '1',
       url: '/'
     },
     {
@@ -32,7 +32,7 @@ export const config = {
       customTitle: '',
       originTitle: 'Portfolio',
       icon: 'work',
-      order: '1',
+      order: '4',
       url: '/portfolio'
     }
   ]

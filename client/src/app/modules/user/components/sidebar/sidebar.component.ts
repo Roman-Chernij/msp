@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
 
   navigation = config.nav;
 
-  constructor() {console.log(this) }
+  constructor() { }
 
   ngOnInit() {
   }
