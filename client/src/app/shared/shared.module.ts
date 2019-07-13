@@ -6,16 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocialNetworkComponent } from './components/social-network/social-network.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from '@app/material/material.module';
-// import { LocalSpinnerComponent } from './components/local-spinner/local-spinner.component';
-// import { LanguagesComponent } from './components/languages/languages.component';
 import { SvgComponent } from './components/svg/svg.component';
 
 @NgModule({
   declarations: [
     SocialNetworkComponent,
     SidebarComponent,
-    // LocalSpinnerComponent,
-    // LanguagesComponent,
     SvgComponent
   ],
   imports: [
@@ -28,7 +24,6 @@ import { SvgComponent } from './components/svg/svg.component';
     MaterialModule,
     SidebarComponent,
     SocialNetworkComponent,
-    // LocalSpinnerComponent,
     SvgComponent
   ],
   providers: []

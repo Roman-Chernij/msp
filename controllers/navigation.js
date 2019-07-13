@@ -2,32 +2,9 @@ const Navigation = require('../models/Nav');
 const Language = require('../models/Language');
 const errorHandler = require('../utils/errorHandler');
 
-const defaultNavigation = [
-  {
-    customTitle: '',
-    originTitle: 'About',
-    icon: ''
-  },
-  {
-    customTitle: '',
-    originTitle: 'Education',
-    icon: ''
-  },
-  {
-    customTitle: '',
-    originTitle: 'Experience',
-    icon: ''
-  },
-  {
-    customTitle: '',
-    originTitle: 'Portfolio',
-    icon: ''
-  }
-];
+module.exports.getNavigation = async (req, res) => {
 
-module.exports.getNavigation = async function(req, res) {
-
-  const newLanguage = await Language.findOne({_id: req.params.id});
+  const newLanguage = await Language.findOne({langKey: req.params.id});
 
   if (newLanguage) {
     try {
@@ -40,19 +17,13 @@ module.exports.getNavigation = async function(req, res) {
           body: []
         });
       }
-    } catch(error) {
-      errorHandler(res, error)
+    } catch (error) {
+      errorHandler(res, error, 404)
     }
-  } else {
-    res.status(421).json({
-      success: false,
-      status: 'failed',
-      message: 'specified is not a valid language identifier'
-    })
   }
 };
 
-module.exports.createNavigation = async function(req, res) {
+module.exports.createNavigation = async function (req, res) {
 
   const newNavigation = await Navigation.findOne({langKey: req.body.langKey});
 
@@ -69,7 +40,7 @@ module.exports.createNavigation = async function(req, res) {
     try {
       await navigation.save();
       res.status(201).json(navigation);
-    } catch(err) {
+    } catch (err) {
       errorHandler(res, err);
     }
   }
@@ -86,9 +57,9 @@ module.exports.updateNavigation = async (req, res) => {
   } else {
     try {
       const language = await Navigation.findByIdAndUpdate(
-          { _id: req.params.id },
-          {$set: req.body},
-          {new: true}
+        {_id: req.params.id},
+        {$set: req.body},
+        {new: true}
       );
       res.status(200).json(language)
     } catch (error) {
@@ -99,13 +70,13 @@ module.exports.updateNavigation = async (req, res) => {
 
 module.exports.deleteNavigation = async function (req, res) {
   try {
-    await Navigation.remove({ _id: req.params.id });
+    await Navigation.remove({_id: req.params.id});
     res.status(201).json({
       success: true,
       status: 'ok',
       id: req.params.id
     });
-  } catch(err) {
+  } catch (err) {
     errorHandler(res, err);
   }
 };

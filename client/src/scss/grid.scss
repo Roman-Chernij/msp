@@ -1,5 +1,9 @@
 .layout-grid {
 
+  &--full {
+    width: 100%;
+  }
+
   &-holder {
     display: grid;
     grid-gap: 1.5rem;
@@ -9,6 +13,10 @@
 
       &--span-6 {
         grid-column-end: span 6;
+      }
+
+      &--span-2 {
+        grid-column-end: span 2;
       }
     }
   }

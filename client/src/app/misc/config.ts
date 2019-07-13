@@ -10,28 +10,28 @@ export const config = {
     {
       customTitle: '',
       originTitle: 'About',
-      icon: '',
+      icon: 'person_pin_circle',
       order: '4',
-      url: ''
+      url: '/'
     },
     {
       customTitle: '',
       originTitle: 'Education',
-      icon: '',
+      icon: 'local_library',
       order: '2',
       url: '/education'
     },
     {
       customTitle: '',
       originTitle: 'Experience',
-      icon: '',
+      icon: 'experience',
       order: '3',
       url: '/experience'
     },
     {
       customTitle: '',
       originTitle: 'Portfolio',
-      icon: '',
+      icon: 'work',
       order: '1',
       url: '/portfolio'
     }

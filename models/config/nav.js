@@ -1,3 +1,5 @@
+const languageBinding = require('./languageBinding');
+
 const bodyNav = {
   customTitle: {
     type: String,
@@ -10,17 +12,19 @@ const bodyNav = {
   icon: {
     type: String,
     required: true
-  }
-};
-const navigation ={
-  langKey: {
-    type: String,
+  },
+  order: {
+    type: Number,
     required: true
   },
+  url: {
+    type: String,
+    required: true
+  }
+};
+const navigation = {
+  ...languageBinding,
   body: [bodyNav]
 };
 
-module.exports = {
-  navigation,
-  bodyNav
-};
+module.exports = navigation;

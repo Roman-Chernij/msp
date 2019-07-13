@@ -9,6 +9,8 @@ import { ExperiencePageComponent } from './experience-page/experience-page.compo
 import { PortfolioPageComponent } from './portfolio-page/portfolio-page.component';
 import { UserPageComponent } from '@app/modules/user/user-page.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { HeaderComponent } from './components/header/header.component';
+import { HeaderLanguagesSelectComponent } from './components/header/header-languages-select/header-languages-select.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { SharedModule } from '@app/shared/shared.module';
     EducationPageComponent,
     ExperiencePageComponent,
     PortfolioPageComponent,
-    UserPageComponent
+    UserPageComponent,
+    HeaderComponent,
+    HeaderLanguagesSelectComponent
   ],
   imports: [
     CommonModule,

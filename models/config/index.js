@@ -1,10 +1,9 @@
 const language = require('./language');
-const { navigation, bodyNav } = require('./nav');
+const navigation = require('./nav');
 
 const modelesConfig = {
   language,
-  navigation,
-  bodyNav
+  navigation
 };
 
 module.exports = modelesConfig;

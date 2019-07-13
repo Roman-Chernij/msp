@@ -1,0 +1,12 @@
+.header-holder {
+  display: flex;
+  justify-content: space-between;
+
+  &-right-side {
+    flex: 1 0 auto;
+  }
+
+  &-left-side {
+    display: flex;
+  }
+}

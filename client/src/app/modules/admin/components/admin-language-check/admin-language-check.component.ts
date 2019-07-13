@@ -20,7 +20,7 @@ export class AdminLanguageCheckComponent implements OnInit {
 
   ngOnInit() {
     this.languageService.getLanguage().subscribe(languages => {
-      const active = languages.find(language => language.langKey.toLowerCase() === 'en');
+      const active = languages.find(language => language.active);
       this.languages = languages;
       if (active) {
         this.languageService.defaultLanguage = active;

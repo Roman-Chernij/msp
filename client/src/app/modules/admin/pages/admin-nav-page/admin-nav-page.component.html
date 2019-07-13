@@ -1,26 +1,27 @@
 <div class="language-container">
   <msp-admin-language-check (changeActive$)="changeActive$($event)" ></msp-admin-language-check>
-  <ul class="language-list" *ngIf="navigation && navigation.body.length">
-    <li class="language-item" *ngFor="let item of navigation.body">
-      <button mat-button *ngIf="item.customTitle; else navigation">
-        <mat-icon>{{ item.icon }}</mat-icon>
-        {{item.customTitle }}
-      </button>
-      <ng-template #navigation>{{ item.originTitle }}</ng-template>
-    </li>
-  </ul>
+  <div class="navigation layout-grid--full layout-grid-holder">
+    <div class="layout-grid-holder__cell--span-6" *ngFor="let item of navigation.body">
+      <div class="navigation-item">
+        <h2 *ngIf="item.customTitle.trim().length">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          {{ item.customTitle }}
+        </h2>
+        <h3>
+          <mat-icon>{{ item.icon }}</mat-icon>
+          {{ item.originTitle }}
+        </h3>
+
+        <div>{{ item.order }}</div>
+        <div>{{ item.url }}</div>
+      </div>
+    </div>
+  </div>
   <mat-progress-spinner
     *ngIf="isLoadNavigation"
     class="example-margin"
     [color]="'warn'"
     [mode]="'indeterminate'"></mat-progress-spinner>
-  <div class="language-add" *ngIf="!navigation || (navigation && !navigation.body.length)">
-    <h1 class="language-add__title">Навигация не создана для этого языка</h1>
-    <button class="language-add__btn" mat-button (click)="edit()">
-      <mat-icon>language</mat-icon>
-      Добавить
-    </button>
-  </div>
 </div>
 <ng-template #template>
   <span class="language-snack-message"><mat-icon>warning</mat-icon> Навигация не создана для этого языка</span>

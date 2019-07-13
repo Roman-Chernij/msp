@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { NavService } from '@app/modules/admin/service/nav.service';
 import { NavigationInterface } from '@app/shared/interfaces/navigation.interface';
 import { NavigationItemInterface } from '@app/shared/interfaces/navigation-item.interface';
-
+import { config } from '@app/misc/config';
 
 @Component({
   selector: 'msp-admin-nav-page',
@@ -15,7 +15,10 @@ import { NavigationItemInterface } from '@app/shared/interfaces/navigation-item.
 export class AdminNavPageComponent implements OnInit {
 
   isLoadNavigation: boolean;
-  navigation: NavigationInterface;
+  navigation: NavigationInterface = {
+    langKey: '',
+    body: config.nav
+  };
   currentNavigation: NavigationItemInterface;
 
   @ViewChild('template') template: TemplateRef<any> ;
@@ -28,7 +31,6 @@ export class AdminNavPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoadNavigation = true;
-    console.log(this  )
   }
 
   public changeActive$(language): void {
@@ -39,7 +41,6 @@ export class AdminNavPageComponent implements OnInit {
     } else {
       this.isLoadNavigation = false;
     }
-
   }
 
   public edit() {
@@ -58,8 +59,7 @@ export class AdminNavPageComponent implements OnInit {
   }
 
   private fetchData(language): void {
-    this.navService.getNavByID(language._id).subscribe(res => {
-      this.navigation = res;
+    this.navService.getNavByID(language.langKey).subscribe(res => {
       this.isLoadNavigation = false;
     });
   }
