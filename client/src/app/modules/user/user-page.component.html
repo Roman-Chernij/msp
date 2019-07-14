@@ -1,21 +1,24 @@
-<header class="header">
-  <msp-header [sidenav]="sidenav"></msp-header>
-</header>
-<main class="main">
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened class="sidenav-box"
-                 [fixedInViewport]="options.value.fixed"
-                 [fixedTopGap]="options.value.top"
-                 [fixedBottomGap]="options.value.bottom">
-      <msp-sidebar></msp-sidebar>
-    </mat-sidenav>
-    <mat-sidenav-content class="main-holder">
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</main>
-<footer>
-  <mat-toolbar>Footer</mat-toolbar>
-</footer>
+<div class="wrapper">
+  <header class="header">
+    <msp-header [sidenav]="sidenav"></msp-header>
+  </header>
+  <main class="main">
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #sidenav mode="side" opened class="sidenav-box"
+                   [fixedInViewport]="options.value.fixed"
+                   [fixedTopGap]="options.value.top"
+                   [fixedBottomGap]="options.value.bottom">
+        <msp-sidebar></msp-sidebar>
+      </mat-sidenav>
+      <mat-sidenav-content class="main-holder">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </main>
+  <footer>
+    <mat-toolbar>Footer</mat-toolbar>
+  </footer>
+</div>
+
 
 

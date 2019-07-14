@@ -4,8 +4,16 @@
   filter: blur(2px);
 }
 
-body {
+.wrapper {
   background-image: url('assets/images/speaker_bg.png');
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+
+  .mat-toolbar {
+    background: transparent;
+  }
 }
 
 .root {
@@ -13,9 +21,6 @@ body {
   flex-direction: column;
   height: 100vh;
 
-  .mat-toolbar {
-    background: transparent;
-  }
   .mat-drawer {
 
     &-side {
@@ -38,10 +43,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-  }
-
-  msp-user-page {
-    padding: .5rem;
   }
 
   .mat-form-field {
