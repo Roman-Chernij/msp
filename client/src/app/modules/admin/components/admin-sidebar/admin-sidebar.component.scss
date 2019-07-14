@@ -22,7 +22,7 @@
     font-family: $secondary-font-family;
     letter-spacing: 1px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: $black;
     border-radius: 1rem;
     transition: ease-in-out background-color $transitionTime;
@@ -40,7 +40,7 @@
       top: 50%;
       left: 1rem;
       transform: translateY(-50%);
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       color: $gray-400;
       transition: ease-in-out color $transitionTime;
     }
