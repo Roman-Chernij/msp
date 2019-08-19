@@ -44,7 +44,7 @@ const adminRouters: Routes = [
         component: AdminNavCreateComponent
       },
       {
-        path: 'navigation/language/:langID/detail/:id',
+        path: 'navigation/language/:langID/detail/:navID',
         component: AdminNavCreateComponent
       },
       {

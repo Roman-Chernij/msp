@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LanguageInterface } from '@app/shared/interfaces/language.interface';
 import { LanguageService } from '@app/modules/admin/service/language.service';
-import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'msp-language-create',
@@ -24,7 +23,6 @@ export class LanguageCreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this)
     this.isLoaded = false;
     this.languageID = this.activeRouter.snapshot.params.id;
     if (this.languageID) {

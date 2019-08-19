@@ -21,13 +21,14 @@ export class AdminNavPageComponent implements OnInit {
   };
   currentNavigation: NavigationItemInterface;
 
-  @ViewChild('template') template: TemplateRef<any> ;
+  @ViewChild('template') template: TemplateRef<any>;
 
   constructor(
     private navService: NavService,
     private router: Router,
     private snackBar: MatSnackBar
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.isLoadNavigation = true;
@@ -51,15 +52,31 @@ export class AdminNavPageComponent implements OnInit {
         duration: 700,
         panelClass: 'mat-snack-bar-error',
         announcementMessage: 'erorr',
-        horizontalPosition: "end",
-        politeness: "assertive",
-        verticalPosition: "top"
+        horizontalPosition: 'end',
+        politeness: 'assertive',
+        verticalPosition: 'top'
       });
     }
   }
 
+  public createNavigation(): void {
+    this.router.navigate([`/admin/navigation/language/${this.currentNavigation._id}/create`]);
+  }
+
+  public editNavigation(): void {
+    this.router.navigate(
+      [`navigation/language/${this.currentNavigation._id}/detail/${this.navigation._id}`]
+    );
+  }
+
+  public deleteNavigation(): void {
+  }
+
   private fetchData(language): void {
     this.navService.getNavByID(language.langKey).subscribe(res => {
+      if (res.body.length) {
+        this.navigation = res;
+      }
       this.isLoadNavigation = false;
     });
   }
